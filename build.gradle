@@ -1,0 +1,33 @@
+buildscript {
+repositories {
+maven { url "http://repo.spring.io/plugins-snapshot" }
+maven { url "http://repo.spring.io/snapshot" }
+maven { url "http://repo.spring.io/release" }
+jcenter()
+}
+dependencies {
+classpath("org.springframework.xd:spring-xd-module-plugin:1.1.0.RELEASE")
+}
+}
+
+ext {
+springXdVersion = '1.1.0.RELEASE'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-xd-module'
+
+repositories {
+maven { url "http://repo.spring.io/release" }
+mavenCentral()
+jcenter()
+maven { url "http://repo.spring.io/snapshot" }
+maven { url "http://repo.spring.io/milestone" }
+}
+
+dependencies {
+compile files('lib/mysql-connector-java-5.1.36.jar')
+compile 'org.springframework.retry:spring-retry:1.1.2.RELEASE'
+}
